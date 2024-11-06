@@ -223,10 +223,6 @@ CDirectiveIncbin::CDirectiveIncbin(const fs::path& fileName)
 {
 	this->fileName = getFullPathName(fileName);
 
-	if (!fs::exists(this->fileName))
-	{
-		Logger::printError(Logger::FatalError, "File %s not found",this->fileName.u8string());
-	}
 
 	std::error_code error;
 	this->fileSize = static_cast<int64_t>(fs::file_size(this->fileName, error));
